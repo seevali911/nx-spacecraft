@@ -1,0 +1,72 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <link href="/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="/css/main.css" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet"/>
+    <title>NX Spacecraft Coach</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+</head>
+<body>
+
+<div id="wrapper">
+    <div class="container">
+        <div th:replace="fragments/header :: header">...</div>
+        <h3 th:if="${#vars['flash.message']}" th:text="${#vars['flash.message']}" class="bg-success" ></h3>
+
+        <form action="#" class="container-fluid" th:object="${routes}" method="get">
+        <div th:if="${routes.empty}">
+            <div>
+                No routes available for this planet yet.
+                Why don't you register your interest? So that you will be the first to get notified when a route is available.
+            </div>
+        </div>
+
+
+         <div th:unless="${routes.empty}">
+            <table id="entertainment" class="table table-striped">
+                <tr>
+                    <td class="td-route"><span><a th:href="@{'/locations/'+ ${routeId}+'/entertainment'}">
+                        Add Entertainment</a></span></td>
+                </tr>
+            </table>
+            <table id="routes" class="table table-striped">
+                <thead>
+                <tr>
+                    <th> Route ID</th>
+                    <th> Departing </th>
+                    <th> Destination</th>
+                    <th> Departing Day</th>
+                    <th> Leg 1</th>
+                    <th> Leg 2 </th>
+                    <th> Leg 3</th>
+                    <th> Leg 4</th>
+                    <th> Entertainment By</th>
+                </tr>
+                </thead>
+                <tbody>
+                    <tr th:each="route : ${routes}">
+                        <td class="td-route"><span><a th:href="@{'/locations/'+ ${route.routeId}+'/timetable'}"><span th:text="${route.routeId}"> </span></a></span></td>
+                        <td class="td-route"><span th:text="${route.departure}"> Departure </span></td>
+                        <td class="td-route"><span th:text="${route.destination}"> Destination </span></td>
+                        <td class="td-route"><span th:text="${route.departingDay}"> Departing Day </span></td>
+                        <td class="td-route"><span th:text="${route.leg1}"> Leg 1 </span></td>
+                        <td class="td-route"><span th:text="${route.leg2}"> Leg 2 </span></td>
+                        <td class="td-route"><span th:text="${route.leg3}"> Leg 3 </span></td>
+                        <td class="td-route"><span th:text="${route.leg4}"> Leg 4 </span></td>
+                        <td class="td-route"><span th:text="${route.entertainmentProvider}"> Entertainment Provider </span></td>
+                    </tr>
+                </tbody>
+            </table>
+         </div>
+        </form>
+    </div>
+</div>
+
+</body>
+<footer>
+
+</footer>
+</html>

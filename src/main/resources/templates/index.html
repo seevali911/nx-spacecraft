@@ -1,0 +1,43 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <link href="/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="/css/main.css" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet"/>
+    <title>NX Spacecraft Coach</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+</head>
+<body>
+
+<div id="wrapper">
+    <div class="container">
+        <div th:replace="fragments/header :: header">...</div>
+        <form action="#" class="container-fluid" th:action="@{/}" th:object="${locations}" method="get">
+            <table id="locations" class="table table-striped">
+                <thead>
+                <tr>
+                    <th colspan="2"> Welcome to NX Spacecraft Coach. Click on the below image to explore your destination. </th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr th:if="${locations.empty}">
+                    <td colspan="2"> No destinations available yet.
+                        Why don't you register your interest. So that you will be the first to get notified when a destination is available </td>
+                </tr>
+                <tr th:each="location : ${locations}">
+                    <td class="td-location"><span><a th:href="@{'/locations/'+ ${location.locationId}}"><span th:text="${location.locationName}"> </span></a></span></td>
+                    <td class="td-location"><span><a th:href="@{'/locations/'+ ${location.locationId}}"><img th:src="@{'/assets/'+ ${location.thumbnail}}" /> </a></span></td>
+                </tr>
+                </tbody>
+            </table>
+        </form>
+    </div>
+</div>
+
+</body>
+<footer>
+
+</footer>
+</html>

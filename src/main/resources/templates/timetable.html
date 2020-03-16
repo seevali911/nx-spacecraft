@@ -1,0 +1,107 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <link href="/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="/css/main.css" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet"/>
+    <title>NX Spacecraft Coach</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+</head>
+<body>
+
+<div id="wrapper">
+    <div class="container">
+        <div th:replace="fragments/header :: header">...</div>
+        <form action="#" class="container-fluid" th:object="${route}" method="get">
+            <table id="routes" class="table table-striped">
+                <input type="hidden" name="departingDay" th:value="${route.departingDay}" />
+                <thead>
+                <tr>
+                    <td colspan="7"><span>Timetable for </span><span th:text="${route.routeId}"> Route Id </span></th></td>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td class="weekday">&nbsp;</td>
+                    <td class="weekday">&nbsp; Monday</td>
+                    <td class="weekday">&nbsp; Tuesday</td>
+                    <td class="weekday">&nbsp; Wednesday</td>
+                    <td class="weekday">&nbsp; Thursday</td>
+                    <td class="weekday">&nbsp; Friday</td>
+                    <td class="weekday">&nbsp; Saturday</td>
+                    <td class="weekday">&nbsp; Sunday</td>
+                </tr>
+                <tr>
+                    <td class="weekday">&nbsp; Mercury</td>
+                    <td class="weekday">&nbsp; </td>
+                    <td class="weekday">&nbsp; Y</td>
+                    <td class="weekday">&nbsp; </td>
+                    <td class="weekday">&nbsp; </td>
+                    <td class="weekday">&nbsp; Y</td>
+                    <td class="weekday">&nbsp; </td>
+                    <td class="weekday">&nbsp; Y</td>
+                </tr>
+                <tr>
+                    <td class="weekday">&nbsp; Venus</td>
+                    <td class="weekday">&nbsp; Y</td>
+                    <td class="weekday">&nbsp; Y</td>
+                    <td class="weekday">&nbsp; Y</td>
+                    <td class="weekday">&nbsp; Y</td>
+                    <td class="weekday">&nbsp; </td>
+                    <td class="weekday">&nbsp; </td>
+                    <td class="weekday">&nbsp; Y</td>
+                </tr>
+                <tr>
+                    <td class="weekday">&nbsp; Earth</td>
+                    <td class="weekday">&nbsp; Y</td>
+                    <td class="weekday">&nbsp; </td>
+                    <td class="weekday">&nbsp; </td>
+                    <td class="weekday">&nbsp; Y</td>
+                    <td class="weekday">&nbsp; Y</td>
+                    <td class="weekday">&nbsp; </td>
+                    <td class="weekday">&nbsp; Y</td>
+                </tr>
+                <tr>
+                    <td class="weekday">&nbsp; Luna</td>
+                    <td class="weekday">&nbsp; Y</td>
+                    <td class="weekday">&nbsp; </td>
+                    <td class="weekday">&nbsp; </td>
+                    <td class="weekday">&nbsp; </td>
+                    <td class="weekday">&nbsp; </td>
+                    <td class="weekday">&nbsp; Y</td>
+                    <td class="weekday">&nbsp; </td>
+                </tr>
+                <tr>
+                    <td class="weekday">&nbsp; Mars</td>
+                    <td class="weekday">&nbsp; </td>
+                    <td class="weekday">&nbsp; Y</td>
+                    <td class="weekday">&nbsp; </td>
+                    <td class="weekday">&nbsp; </td>
+                    <td class="weekday">&nbsp; Y</td>
+                    <td class="weekday">&nbsp; Y</td>
+                    <td class="weekday">&nbsp; Y</td>
+                </tr>
+                <tr>
+                    <td class="weekday">&nbsp; Phobos</td>
+                    <td class="weekday">&nbsp; </td>
+                    <td class="weekday">&nbsp; Y</td>
+                    <td class="weekday">&nbsp; </td>
+                    <td class="weekday">&nbsp; Y</td>
+                    <td class="weekday">&nbsp; </td>
+                    <td class="weekday">&nbsp; </td>
+                    <td class="weekday">&nbsp; Y</td>
+                </tr>
+                </tbody>
+            </table>
+        </form>
+    </div>
+</div>
+
+
+</body>
+<footer>
+
+</footer>
+</html>
